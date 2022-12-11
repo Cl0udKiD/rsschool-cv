@@ -1,2 +1,1 @@
-# rsschool-cv
-rsschool
+https://Cl0udKiD.github.io/rsschool-cv/cv
