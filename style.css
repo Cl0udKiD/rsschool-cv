@@ -1,0 +1,703 @@
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+ *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+    all: unset;
+    display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+    cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+    max-inline-size: 100%;
+    max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+    -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+    white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+pre {
+    all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+    color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+    content: "";
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+    display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+    all: revert;
+}
+
+/* inika-regular - latin */
+@font-face {
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('/fonts/inika-v21-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/fonts/inika-v21-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* inika-700 - latin */
+  @font-face {
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('/fonts/inika-v21-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/fonts/inika-v21-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+  /* inter-regular - latin */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('/fonts/inter-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/fonts/inter-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* inter-700 - latin */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+         url('/fonts/inter-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/fonts/inter-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+html{
+    scroll-behavior: smooth; 
+}
+
+.header{
+    width: 100%;
+    height: 134px;
+    left: 0px;
+    top: 0px;
+    background: #EDF2EC;
+    z-index: 1;
+}
+
+.wrapper{
+    max-width: 1222px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header_logo-link{
+    margin-top:51px;
+}
+
+.header_item{
+    font-family: 'inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 50px;
+    color: #010201;
+    margin-right: 46px;
+    margin-top: 42px;
+}
+
+.header_item:first-child{
+    font-family: 'inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 50px;
+    color: #E06733;
+    margin-left: 688.83px;
+}
+
+.header_item:last-child{
+    margin-right: 0;
+}
+
+.header_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.welcome{
+    position: absolute;
+    width: 100%;
+    height: 532px;
+    top: 134px;
+    background: #EDF2EC;
+}
+
+.welcome_leafs{
+    margin-left: -5px;
+    margin-top:55px;
+}
+
+.we_grow{
+    position: absolute;
+    width: 549px;
+    height: 101px;
+    top: 98px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 50px;
+    color: #717171;
+}
+
+.welcome_lorem{
+    position: absolute;
+    width: 525.44px;
+    height: 105px;
+    top: 241px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 35px;
+    color: #636060;
+}
+
+.welcome_section{
+    margin-left: 215px;
+}
+
+.box_learn{
+    box-sizing: border-box;
+    position: absolute;
+    width: 158px;
+    height: 44px;
+    top: 394px;
+    border: 2px solid #E06733;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    padding-top: 12px;
+    text-align: center;
+    color: #000000;
+}
+
+.box_learn:hover{
+    color: #FFFFFF;
+    background-color: #E06733;
+}
+
+.learn{
+    position: absolute;
+    width: 104px;
+    height: 16px;
+    margin-left:27px;
+    top: 408px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.we_are{
+    position: absolute;
+    width: 463px;
+    height: 102px;
+    top: 161px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+}
+
+.about_lorem{
+    position: absolute;
+    width: 605px;
+    height: 208px;
+    top: 303px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #636060;
+}
+
+.about{
+    position: absolute;
+    width: 100%;
+    height: 666px;
+    left: 0px;
+    top: 666px;
+    background: #FFFFFF;
+}
+
+.plant_pot{
+    position: absolute;
+    width: 464px;
+    height: 479px;
+    top: 93px;
+    margin-left:758px;
+}
+
+.service{
+    position: absolute;
+    width: 100%;
+    height: 1300px;
+    left: 0px;
+    top: 1332px;
+    background: #EDF2EC;
+}
+
+.box{
+    box-sizing: border-box;
+    width: 161px;
+    height: 50px;
+    margin-right: 38px;
+    margin-top: 69px;
+    border: 1px solid #E06733;
+    border-radius: 5px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #E06733;   
+    text-align: center;
+    padding-top: 12px;
+}
+
+.project_boxes{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box:first-child{
+    margin-left: 448px;
+}
+
+.box:hover{
+    color: #FFFFFF;
+    background-color: #E06733;
+}
+
+.service_text{
+    position: absolute;
+    width: 81px;
+    text-align: center;
+    height: 26px;
+    top: 81px;
+    margin-left: 40px;
+    margin-right: 132px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: #E06733;   
+}
+
+.service_projects{
+    position: absolute;
+    width: 306px;
+    height: 94px;
+    top:40px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+}
+
+.service_name{
+    margin-top: 10px;
+    margin-bottom: 12px;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #E06733;
+}
+
+.service_lorem{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #717171;
+}
+
+.service_box{
+    box-sizing: border-box;
+    width: 330px;
+    height: 100px;
+    margin-top:-5px;
+    border: 1px solid #E3E1D5;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.services_1{
+    margin-top: 105px;
+}
+
+.service_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.service_item{
+   margin-right: 116px;
+   width: 330px;
+   height: 450px;
+}
+
+.service_item:last-child{
+    margin-right: 0px;
+}
+
+.services_2{
+    margin-top: 55px;
+}
+
+.prices{
+    margin-top: 40px;
+    position: absolute;
+    width: 100%;
+    height: 560px;
+    left: 0px;
+    top: 2630px;
+    background: #FFFFFF;
+}
+
+.prices_header{
+    width: 135px;
+    height: 49px;
+    margin-right: 0px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #000000;
+}
+
+.our_best{
+    width: 452px;
+    height: 103px;  
+    margin-left: 635px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: right;
+    color: #000000;
+}
+
+.prices_list{
+    margin-top: 108px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 332px;
+    height: 282.01px;
+    border: 1px solid #E3E1D5;
+    border-radius: 20px;
+}
+
+.prices_item.box:first-child{
+    margin-top: 34px;
+}
+
+.prices_item{
+    margin-left: 41px;
+    margin-top: 32px;
+    width: 250px;
+    height: 50px;
+    background: #EDF2EC;
+    border-radius: 20px;
+}
+
+.vector1{
+    background: black;
+}
+
+.elips{
+    margin-left: 194px;
+    padding-top: 17px   ;
+    width: 16px;
+    height: 16px;
+    background: #D9D9D9;
+    border-radius: 50%
+}
+
+.prices_name{
+    padding-top: 17px;
+    margin-left: 40px;
+    width: 100px;
+    height: 18px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.contact_us{
+    margin-top:38px;
+    margin-left: 1060px;
+    width: 162px;
+    height: 50px;
+    border: 1px solid #E06733;
+    border-radius: 5px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: #E06733;
+    padding-top: 12px;
+    vertical-align: middle;
+}
+
+.contact_us:hover{
+    color: #FFFFFF;
+    background-color: #E06733;
+}
+
+
+.contact_us_text{
+    margin-left: 30px;
+    padding-top: 12px;
+    width: 98px;
+    height: 26px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    color: #E06733;
+}
+
+.prices_leafs{
+    width: 152px;
+    height: 174.99px;
+    margin-left: 1070px;
+    margin-top: 39px;
+}
+
+.contact{
+position: absolute;
+width: 100%;
+height: 550px;
+left: 0px;
+top: 3190px;
+background: #EDF2EC;
+}
+
+.contact_header{
+    margin-left: 113px;
+    margin-top: 60px;
+    width: 195px;
+    height: 51px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+    color: #499A18;
+}
+
+.woman_img{
+    margin-top: 53px;
+    width: 400px;
+    height: 496.99px;
+}
+
+.city_container{
+    margin-top: -402px;
+    margin-left: 772px;
+    background: #D6E7D2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0px;
+    width: 450px;
+    height: 50px;
+}
+
+.city{
+    padding-top: 5px;
+    margin-left: 20px;
+    width: 204px;
+    height: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0.05em;
+    color: #717171;
+}
+
+.arrow{
+    margin-left: 4px;
+    margin-top: -10px;
+    width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 5px solid #717171;
+}
+
+.elips_city{
+    margin-top: -20px;
+    margin-left: 399px;
+    width: 16px;
+    height: 16px;
+    background: #AEA1A1;
+    border-radius: 50%
+}
+
+.space{
+    height: 5px;
+}
+
+.arrow_city{
+    margin: 0 auto;
+    width: 0;
+	height: 0;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 5px solid #FFFFFF;
+}   
+
+.footer{
+    position: absolute;
+    width: 100%;
+    height: 130px;
+    left: 0px;
+    top: 3740px;
+    background: #FFFFFF;
+}
+
+.footer_text{    
+    margin-top: 40px;
+    margin-right: 20px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: #000000;
+}
+
+.rs{
+    margin-top: 40px;
+    margin-left: 317px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: #000000;
+}
+
+.inst{
+    margin-left: 324px;
+    margin-top: 51px;
+}
+
+.fb{
+    margin-left: 20px;
+    margin-top: 49px;
+}
+
+.tw{    
+    margin-left: 20px;
+    margin-top: 49px;
+}
+
+.pint{
+    margin-left: 20px;
+    margin-top: 49px;
+}
