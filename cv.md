@@ -57,7 +57,7 @@ Recently I've completed a course for front-end developing and got very intereste
 ```
 
 ## Education
-* University: Moscow University of Geodozy and Cartography
+* University: Moscow University of Geodosy and Cartography
 * Courses:
   + [Rolling Scopes JS/Front-end Preschool](https://app.rs.school/certificate/pzr17273 "Certificate")
 ## Language
