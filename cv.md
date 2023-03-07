@@ -64,4 +64,4 @@ Recently I've completed a course for front-end developing and got very intereste
 * Russian: native
 * English: C1 Advanced/C2 Proficient
 
-![english.png](https://ci5.googleusercontent.com/proxy/0cPtbLa3WclDTgysq4eghQdkYALWlzCcrFbbY9tO8HB2wcw8wGFW-ySD_QT6oqELDdvxZCfaxYSgFOOdy2LgxvJRf-OByd10n20Imt3GYiPAa5ysFivLqy_kMg=s0-d-e1-ft#https://cdn.efset.org/efset-media-assets/percentage-scores/badges/96.png)
+<img src="https://mma.prnewswire.com/media/1513369/Educative_Logo.jpg"  width="300" height="300">
